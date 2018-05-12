@@ -1,0 +1,30 @@
+@media screen {
+  html, body {
+    background-color: darkgrey;
+    height: 100%;
+  }
+
+  body {
+    display: flex;
+    flex-direction: column;
+  }
+
+  header {
+    font-size: 24pt;
+    text-align: center;
+    flex: 0 0 auto;
+  }
+
+  section {
+    flex: 1 1 auto;
+    overflow:scroll;
+  }
+
+  footer {
+    flex-shrink: 0;
+  }
+
+  ::-webkit-scrollbar {
+    display: none;
+  }
+}
