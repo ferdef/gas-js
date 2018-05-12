@@ -1,6 +1,7 @@
 @media screen {
   html, body {
     background-color: darkgrey;
+    font-size: 18pt;
     height: 100%;
   }
 
@@ -11,6 +12,7 @@
 
   header {
     font-size: 24pt;
+    text-shadow: 1px 2px grey;
     text-align: center;
     flex: 0 0 auto;
   }
@@ -22,9 +24,18 @@
 
   footer {
     flex-shrink: 0;
+    font-size: 8px;
   }
 
   ::-webkit-scrollbar {
     display: none;
+  }
+
+  #data-section > * {
+    font-size: 14px;
+  }
+
+  .in-line > * {
+    display: inline-block;
   }
 }

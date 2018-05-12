@@ -1,6 +1,8 @@
 console.log("Loading");
 
 var fetchedData;
+var quantity = 10;
+var slice = 0;
 
 function fetchData(event) {
   function validateResponse(response) {
@@ -16,8 +18,9 @@ function fetchData(event) {
   function storeData(response) {
     fetchedData = response;
     const dataTable = document.querySelector("#table");
-    console.log(fetchedData);
-    dataTable.appendChild(buildHtmlTable(fetchedData["ListaEESSPrecio"]));
+    const origin = slice*quantity;
+    const showedData = fetchedData["ListaEESSPrecio"].slice(origin, origin + quantity);
+    dataTable.appendChild(buildHtmlTable(showedData));
     button.disabled = false;
   }
 
