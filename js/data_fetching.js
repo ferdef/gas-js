@@ -16,12 +16,24 @@ function fetchData(event) {
   }
 
   function storeData(response) {
-    fetchedData = response;
-    const dataTable = document.querySelector("#table");
+    fetchedData = filterData(response);
+    const dataTable = document.querySelector("#data-section");
     const origin = slice*quantity;
-    const showedData = fetchedData["ListaEESSPrecio"].slice(origin, origin + quantity);
+    const showedData = fetchedData.slice(origin, origin + quantity);
     dataTable.appendChild(buildHtmlTable(showedData));
     button.disabled = false;
+  }
+
+  function filterData(response) {
+    const data = response["ListaEESSPrecio"];
+    const filtered = data.map(row => {
+      return {
+        "Localidad": row["Localidad"],
+        "Gasoleo A": row["Precio Gasoleo A"]
+      };
+    })
+    debugger;
+    return filtered;
   }
 
   const url = 'https://sedeaplicaciones.minetur.gob.es/ServiciosRESTCarburantes/PreciosCarburantes/EstacionesTerrestres/';
